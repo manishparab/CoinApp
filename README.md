@@ -9,5 +9,4 @@ please make sure Coin Values API is running on port 12000, if you have selected 
 `/src/app/app.config.json`
 
 ### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
+Run `ng serve` form project directory. Navigate to `http://localhost:4200/`.

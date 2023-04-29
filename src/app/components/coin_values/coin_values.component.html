@@ -1,0 +1,78 @@
+<div class="container">
+<div class="row shadow bg-white rounded">
+    <div class="table-responsive col-md-6">
+        <table class="table table-borderless">
+            <thead>
+                <tr class="h3">
+                  <th scope="col" > {{assetPriceHistory$.asset_name}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="h4">
+                    <td >${{assetPriceHistory$.price_latest}} </td>
+                </tr>
+                <tr class="h4">
+                   <td>
+                    <div class="text-success" *ngIf="current_asset_delta >= 0"> up by {{current_asset_delta}}</div>
+                    <div class="text-danger" *ngIf="current_asset_delta < 0"> down by {{current_asset_delta}}</div>
+                   </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+    <div class="table-responsive col-md-6">
+        <table class="table table-striped" >
+            <tbody>
+            <tr class="h6">
+                <td>24 H</td>
+                <div *ngIf="assetPriceHistory$.price_twenty_four_hour_ago;else nodata24hr" >
+                    <td>${{assetPriceHistory$.price_twenty_four_hour_ago}}</td>
+                </div>
+                <ng-template #nodata24hr>
+                    <td>
+                      No data found
+                    </td>
+                 </ng-template>
+               
+            </tr>
+            <tr>
+                <td>8 H</td>
+                <div *ngIf="assetPriceHistory$.price_eight_hour_ago;else nodata8hr" >
+                    <td>${{assetPriceHistory$.price_eight_hour_ago}}</td>
+                </div>
+                <ng-template #nodata8hr>
+                    <td>
+                      No data found
+                    </td>
+                 </ng-template>
+            </tr>
+            <tr>
+                <td>4 H</td>
+                <div *ngIf="assetPriceHistory$.price_four_hour_ago;else nodata4hr" >
+                    <td>${{assetPriceHistory$.price_four_hour_ago}}</td>
+                </div>
+                <ng-template #nodata4hr>
+                    <td>
+                      No data found
+                    </td>
+                 </ng-template>
+            </tr>
+            <tr>
+                <td>1 H</td>
+                <div *ngIf="assetPriceHistory$.price_one_hour_ago;else nodata1hr" >
+                    <td>${{assetPriceHistory$.price_one_hour_ago}}</td>
+                </div>
+                <ng-template #nodata1hr>
+                    <td>
+                      No data found
+                    </td>
+                 </ng-template>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" (click)="change_asset()">
+       View {{current_asset_name === "bitcoin" ? 'Ethereum' : 'Bitcoin'}}
+    </button>
+  </div>
+</div>

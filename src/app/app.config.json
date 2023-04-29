@@ -1,0 +1,4 @@
+{
+    "asset_prices_base_url" : "http://127.0.0.1:12000",
+    "polling_interval" : 6000
+}

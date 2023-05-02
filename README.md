@@ -8,6 +8,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 please make sure Coin Values API is running on port 12000, if you have selected other port please change the asset_prices_base_url value from
 `/src/app/app.config.json`
 
-### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### package requirements
+run below command from project directory terminal
+```
+npm install
+```
 
+### Development server
+Run `ng serve` form project directory. Navigate to `http://localhost:4200/`.

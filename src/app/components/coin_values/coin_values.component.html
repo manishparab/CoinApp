@@ -33,7 +33,7 @@
                       No data found
                     </td>
                  </ng-template>
-               
+
             </tr>
             <tr>
                 <td>8 H</td>
@@ -74,5 +74,8 @@
     <button class="btn btn-primary" (click)="change_asset()">
        View {{current_asset_name === "bitcoin" ? 'Ethereum' : 'Bitcoin'}}
     </button>
+    <div *ngIf="current_error_message.length !=0" class="alert alert-danger" style="margin-top: 5px" role="alert">
+       Empty data due to : {{current_error_message}}
+    </div>
   </div>
 </div>

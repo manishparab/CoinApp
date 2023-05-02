@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import AssetPriceHistory from 'src/app/models/asset_price_history';
 import { AppConfigService } from 'src/app/services/app.config.services';
 import { CoinvaluesService } from 'src/app/services/coinvalues.service';
@@ -17,6 +16,7 @@ export default class CoinValuesComponent implements OnInit {
 
   current_asset_name:string = "bitcoin"
   current_asset_delta:number = 0
+  current_error_message:string = ""
 
   private _price_history_sub:any;
 
@@ -51,7 +51,11 @@ export default class CoinValuesComponent implements OnInit {
     .subscribe(data=> {
       this.current_asset_delta = data.price_latest - data.price_twenty_four_hour_ago
       this.assetPriceHistory$ = data
+      this.current_error_message = ""
+    }, error => {
+      this.current_error_message = error.message
     })
+
   }
 
   ngOnInit(): void {
